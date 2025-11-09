@@ -18,7 +18,6 @@ MODEL_DIR = (
     BASE_DIR
     / ".."
     / "public"
-    / "saved_model"
 ).resolve()
 
 if not MODEL_DIR.exists():
