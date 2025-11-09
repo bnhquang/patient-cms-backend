@@ -17,7 +17,6 @@ BASE_DIR = Path(__file__).resolve().parent
 MODEL_DIR = (
     BASE_DIR
     / ".."
-    / "patient-cms-backend"
     / "public"
     / "saved_model"
 ).resolve()
