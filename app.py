@@ -17,10 +17,9 @@ BASE_DIR = Path(__file__).resolve().parent
 MODEL_DIR = (
     BASE_DIR
     / ".."
-    / "patient-cms"
+    / "patient-cms-backend"
     / "public"
     / "saved_model"
-    / "no_show_random_forest_tf"
 ).resolve()
 
 if not MODEL_DIR.exists():
