@@ -4,6 +4,7 @@ import json
 import math
 from datetime import datetime
 import logging
+import os
 from pathlib import Path
 from typing import Any, Dict
 
@@ -14,14 +15,17 @@ import tensorflow_decision_forests as tfdf  # noqa: F401
 from flask import Flask, jsonify, request
 
 BASE_DIR = Path(__file__).resolve().parent
-MODEL_DIR = (
-    BASE_DIR
-    / ".."
-    / "public"
-).resolve()
+_default_model_dir = BASE_DIR / "public" / "no_show_random_forest_tf"
+_model_path = Path(os.environ.get("MODEL_DIR", _default_model_dir)).resolve()
+MODEL_DIR = _model_path.parent if _model_path.is_file() else _model_path
 
 if not MODEL_DIR.exists():
     raise FileNotFoundError(f"Saved model directory not found at {MODEL_DIR}")
+
+if not (MODEL_DIR / "saved_model.pb").exists():
+    raise FileNotFoundError(
+        f"Saved model bundle missing expected file saved_model.pb in {MODEL_DIR}"
+    )
 
 with open(MODEL_DIR / "metadata.json", "r", encoding="utf-8") as fp:
     METADATA = json.load(fp)

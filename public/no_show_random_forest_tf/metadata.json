@@ -1,0 +1,46 @@
+{
+  "model_name": "no_show_random_forest_tf",
+  "framework": {
+    "tensorflow": "2.19.0",
+    "tensorflow_decision_forests": "1.12.0"
+  },
+  "random_state": 42,
+  "features": {
+    "numeric": [
+      "Age",
+      "Scholarship",
+      "Hipertension",
+      "Diabetes",
+      "Alcoholism",
+      "Handicap",
+      "SMS_received",
+      "wait_time_days",
+      "scheduled_hour",
+      "appointment_month",
+      "is_weekend_appointment",
+      "same_day_appointment",
+      "days_between"
+    ],
+    "categorical": [
+      "Gender",
+      "Neighbourhood",
+      "scheduled_day_name",
+      "appointment_weekday"
+    ]
+  },
+  "class_weight": {
+    "0": 1.0,
+    "1": 3.9521142537104454
+  },
+  "training": {
+    "sample_weight_column": "sample_weight"
+  },
+  "metrics": {
+    "accuracy": 0.667872975662716,
+    "balanced_accuracy": 0.6769603298823799,
+    "roc_auc": 0.7480365223365225,
+    "precision": 0.34113490836829324,
+    "recall": 0.6922043010752689,
+    "f1": 0.45703298328649605
+  }
+}
