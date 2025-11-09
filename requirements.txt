@@ -2,4 +2,5 @@ Flask==3.1.1
 pandas==2.3.2
 tensorflow==2.15.1
 tensorflow_decision_forests==1.8.1
+gunicorn==22.0.0
 
